@@ -18,17 +18,12 @@ class ClippingPath extends StatelessWidget {
       appBar: AppBar(
         title: Text('ClipPath'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                  'If the image has more width, ClipOval forms shape like a rugby ball...'),
-            ),
-            ClipPath(
+      body: Column(
+        children: [
+           SizedBox(
+            height: 25,
+          ),
+          ClipPath(
               clipper: MyCustomClipper(),
               child: Container(
                 height: 170,
@@ -38,12 +33,15 @@ class ClippingPath extends StatelessWidget {
                 child: Image.asset('assets/images/avatar_full.png'),
               ),
             ),
-            SizedBox(
-              height: 70,
-            ),
-            ClipPath(
+          SizedBox(
+            height: 45,
+          ),
+          Align(
+            alignment: Alignment.center,
+                      child: ClipPath(
               clipper: MySecondCustomClipper(),
               child: Container(
+                margin: EdgeInsets.all(20),
                 width: 200,
                 height: 250,
                 decoration: BoxDecoration(
@@ -52,13 +50,8 @@ class ClippingPath extends StatelessWidget {
                 child: Image.asset('assets/images/avatar_full.png'),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                  'If image has more height, ClipOval forms a shape like an egg.'),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
       drawer: AppDrawer(),
     );
