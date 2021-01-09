@@ -12,34 +12,64 @@ class FirstScreen extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.indigo[300], Colors.indigo[900]],
+                colors: [Colors.indigo[100], Colors.black12],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                stops: [0, 0.7],
+                stops: [0, 0.9],
               ),
+            ),
+          ),
+          ConstrainedBox(
+            constraints: BoxConstraints.expand(),
+            child: Container(
+              height: 220.0,
+              width: 300.0,
+              child: Image.asset('assets/images/avatar_full.png'),
             ),
           ),
           Center(
             child: ClipRect(
-              child: Positioned.fill(
-                //to ensure the filter completelys covers the widget
-                child: BackdropFilter(
-                  filter: ui.ImageFilter.blur(
-                    sigmaX: 10.0,
-                    sigmaY: 10.0,
+              child: BackdropFilter(
+                filter: ui.ImageFilter.blur(
+                  sigmaX: 10.0,
+                  sigmaY: 10.0,
+                ),
+                child: Container(
+                  height: 220.0,
+                  width: 300.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: Colors.grey.shade50.withOpacity(0.4),
                   ),
-                  child: Container(
-                    height: 200.0,
-                    width: 200.0,
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0),
+                  child: new Center(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Text('BackDrop Effect', style: Theme.of(context).textTheme.headline6),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              labelText: 'Username',
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                            ),
+                            obscureText: true,
+                          ),
+                        ),
+                      ],
                     ),
-                    child: new Center(
-                      child: Text(
-                        'Hello, World.',
-                        style: Theme.of(context).textTheme.headline6
-                      ),
-                    ),
+                    // child: Text(
+                    //   'Hello, World.',
+                    //   style: Theme.of(context).textTheme.headline6,),
                   ),
                 ),
               ),
