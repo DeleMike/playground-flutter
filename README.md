@@ -2,7 +2,9 @@
 
 ## To know how
 
-    - Check out first_screen.dart
+    - clone project
+    - flutter run
+    - Check out first_screen.dart!
 
 ## Screenshots
 
