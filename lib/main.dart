@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './screens/first_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.indigo,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      //home,
+      home: FirstScreen(),
       routes: {
         
       },
