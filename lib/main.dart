@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(LogoApp());
 }
 
-class MyApp extends StatelessWidget {
+class LogoApp extends StatefulWidget {
+  @override
+  _LogoAppState createState() => _LogoAppState();
+
+}
+  
+class _LogoAppState extends State<LogoApp>{  
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter PlayGround',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(),
-    );
+      return Center(
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          height: 300,
+          width: 300,
+          child: FlutterLogo(),
+        ),
+      );
+
+    // return MaterialApp(
+    //   title: 'Animations with Flutter Logo',
+    //   theme: ThemeData(
+    //     primarySwatch: Colors.purple,
+    //     visualDensity: VisualDensity.adaptivePlatformDensity,
+    //   ),
+    //    home: MyHomePage(),
+    // );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Playground'),
-      ),
-      body: Center(
-        child: Text('Play has no ends'),
-      ),
-    );
-  }
-}
