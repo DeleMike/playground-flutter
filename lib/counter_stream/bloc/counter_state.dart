@@ -26,7 +26,7 @@ class CounterRunning extends CounterState {
 
 //runned(completed) state
 class CounterCompleted extends CounterState {
-  CounterCompleted() : super(0);
+  CounterCompleted() : super(1);
 
   String toString() => 'CounterCompleted { duration: $duration}';
 }

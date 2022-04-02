@@ -37,6 +37,6 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
   }
 
   void _onTicked(CounterTicked event, Emitter<CounterState> emit) {
-    emit(event.duration > 0 ? CounterRunning(event.duration) : CounterCompleted());
+    emit(event.duration < 13 ? CounterRunning(event.duration) : CounterCompleted());
   }
 }
