@@ -37,6 +37,7 @@ class SelectBlocType extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Work with streams
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/bloc-stream');
@@ -44,6 +45,17 @@ class SelectBlocType extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Text('Bloc Stream'),
+              ),
+            ),
+
+            // Work with bloc consumer
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/bloc-stream');
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Text('Bloc Consumer'),
               ),
             ),
           ],
