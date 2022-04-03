@@ -4,7 +4,10 @@ Your flutter repo for testing, using, and having that feel about Flutter widgets
 
 ## Getting Started
 
-    cd <name_of_widget-branch>
+    cd <name-of-branch>
+    flutter run
+
+    And...
 
     Play, Play Play!!!
 
