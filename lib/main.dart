@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:playground/bloc_consumer/cubit/counter_consumer_cubit_cubit.dart';
 import 'package:playground/counter_stream/bloc/counter_bloc.dart';
 
-import './counter_stream/bloc_stream.dart';
+import 'counter_stream/bloc_stream.dart';
+import 'bloc_consumer/counter_bloc_consumer.dart';
 import 'counter_stream/ticker.dart';
 
 void main() {
@@ -13,8 +14,15 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => CounterBloc(ticker: Ticker()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => CounterBloc(ticker: Ticker()),
+        ),
+        BlocProvider(
+          create: (_) => CounterConsumerCubitCubit(),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter PlayGround',
         theme: ThemeData(
@@ -22,7 +30,11 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         initialRoute: '/',
-        routes: {'/': (context) => SelectBlocType(), '/bloc-stream': (context) => BlocStream()},
+        routes: {
+          '/': (context) => SelectBlocType(),
+          '/bloc-stream': (context) => BlocStream(),
+          '/counter-bloc-consumer': (context) => CounterBlocConsumer()
+        },
       ),
     );
   }
@@ -51,7 +63,7 @@ class SelectBlocType extends StatelessWidget {
             // Work with bloc consumer
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/bloc-stream');
+                Navigator.of(context).pushNamed('/counter-bloc-consumer');
               },
               child: Padding(
                 padding: const EdgeInsets.all(12),
